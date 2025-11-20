@@ -26,6 +26,12 @@ MainWindow::MainWindow(QWidget *parent)
     QLabel *author = new QLabel(ui->statusbar);
     author->setText(tr("郑宇"));
     ui->statusbar->addPermanentWidget(author);
+
+    ui->actionUndo->setEnabled(false);
+    ui->actionRedo->setEnabled(false);
+    ui->actionCopy->setEnabled(false);
+    ui->actionCut->setEnabled(false);
+    ui->actionPaste->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -186,3 +192,54 @@ bool MainWindow::userEditConfirmed()
     }
 
 }
+
+void MainWindow::on_actionUndo_triggered()//撤销
+{
+    ui->TextEdit->undo();
+}
+
+
+void MainWindow::on_actionRedo_triggered()//恢复
+{
+    ui->TextEdit->redo();
+}
+
+
+void MainWindow::on_actionCut_triggered()//剪切
+{
+    ui->TextEdit->cut();
+    ui->actionPaste->setEnabled(true);
+}
+
+
+void MainWindow::on_actionCopy_triggered()//复制
+{
+    ui->TextEdit->copy();
+    ui->actionPaste->setEnabled(true);
+}
+
+
+void MainWindow::on_actionPaste_triggered()//粘贴
+{
+    ui->TextEdit->paste();
+}
+
+
+void MainWindow::on_TextEdit_undoAvailable(bool b)
+{
+    ui->actionUndo->setEnabled(b);
+}
+
+
+void MainWindow::on_TextEdit_copyAvailable(bool b)
+{
+    ui->actionCopy->setEnabled(b);
+    ui->actionCut->setEnabled(b);
+}
+
+
+void MainWindow::on_TextEdit_redoAvailable(bool b)
+{
+    ui->actionRedo->setEnabled(b);
+}
+
