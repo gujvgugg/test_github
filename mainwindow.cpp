@@ -44,6 +44,9 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->actionWrap->setChecked(true);
     }
+
+    ui->actionBar->setChecked(true);
+    ui->actionToolbar->setChecked(true);
 }
 
 MainWindow::~MainWindow()
@@ -205,33 +208,33 @@ bool MainWindow::userEditConfirmed()
 
 }
 
-void MainWindow::on_actionUndo_triggered()//撤销
+void MainWindow::on_actionUndo_triggered()//撤销4
 {
     ui->TextEdit->undo();
 }
 
 
-void MainWindow::on_actionRedo_triggered()//恢复
+void MainWindow::on_actionRedo_triggered()//恢复4
 {
     ui->TextEdit->redo();
 }
 
 
-void MainWindow::on_actionCut_triggered()//剪切
+void MainWindow::on_actionCut_triggered()//剪切4
 {
     ui->TextEdit->cut();
     ui->actionPaste->setEnabled(true);
 }
 
 
-void MainWindow::on_actionCopy_triggered()//复制
+void MainWindow::on_actionCopy_triggered()//复制4
 {
     ui->TextEdit->copy();
     ui->actionPaste->setEnabled(true);
 }
 
 
-void MainWindow::on_actionPaste_triggered()//粘贴
+void MainWindow::on_actionPaste_triggered()//粘贴4
 {
     ui->TextEdit->paste();
 }
@@ -256,7 +259,7 @@ void MainWindow::on_TextEdit_redoAvailable(bool b)
 }
 
 
-void MainWindow::on_actionFontColor_triggered()//字体颜色
+void MainWindow::on_actionFontColor_triggered()//字体颜色5
 {
     QColor color=QColorDialog::getColor(Qt::black,this,"选择颜色");
     if(color.isValid()){
@@ -265,7 +268,7 @@ void MainWindow::on_actionFontColor_triggered()//字体颜色
 }
 
 
-void MainWindow::on_actionBColor_triggered()//背景颜色
+void MainWindow::on_actionBColor_triggered()//背景颜色5
 {
     QColor color=QColorDialog::getColor(Qt::black,this,"选择颜色");
     if(color.isValid()){
@@ -274,13 +277,13 @@ void MainWindow::on_actionBColor_triggered()//背景颜色
 }
 
 
-void MainWindow::on_actionColor_triggered()//字体背景色
+void MainWindow::on_actionColor_triggered()//字体背景色5
 {
 
 }
 
 
-void MainWindow::on_actionWrap_triggered()//自动换行
+void MainWindow::on_actionWrap_triggered()//自动换行5
 {
     QPlainTextEdit::LineWrapMode mode =ui->TextEdit->lineWrapMode();
     if(mode == QTextEdit::NoWrap ){
@@ -293,12 +296,42 @@ void MainWindow::on_actionWrap_triggered()//自动换行
 }
 
 
-void MainWindow::on_actionFont_triggered()//字体
+void MainWindow::on_actionFont_triggered()//字体5
 {
     bool ok=false;
     QFont font = QFontDialog::getFont(&ok, this);
 
     if(ok)
         ui->TextEdit->setFont(font);
+}
+
+
+void MainWindow::on_actionToolbar_triggered()//工具栏6
+{
+    bool visible=ui->toolBar->isVisible();
+    ui->toolBar->setVisible(!visible);
+    ui->actionToolbar->setChecked(!visible);
+
+}
+
+
+void MainWindow::on_actionBar_triggered()//状态栏6
+{
+    bool visible =ui->statusbar->isVisible();
+    ui->statusbar->setVisible(!visible);
+    ui->actionBar->setChecked(!visible);
+}
+
+
+void MainWindow::on_actionSelectAll_triggered()//全选6
+{
+    ui->TextEdit->selectAll();
+}
+
+
+void MainWindow::on_actionExit_triggered()//退出6
+{
+   if(userEditConfirmed())
+        exit(0);
 }
 
