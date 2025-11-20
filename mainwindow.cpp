@@ -5,6 +5,8 @@
 #include "replacedialog.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QColorDialog>
+#include <QFontDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -32,6 +34,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->actionCopy->setEnabled(false);
     ui->actionCut->setEnabled(false);
     ui->actionPaste->setEnabled(false);
+
+    QPlainTextEdit::LineWrapMode mode =ui->TextEdit->lineWrapMode();
+
+    if(mode == QTextEdit::NoWrap ){
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+        ui->actionWrap->setChecked(false);
+    } else {ui->TextEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
+
+        ui->actionWrap->setChecked(true);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -241,5 +253,52 @@ void MainWindow::on_TextEdit_copyAvailable(bool b)
 void MainWindow::on_TextEdit_redoAvailable(bool b)
 {
     ui->actionRedo->setEnabled(b);
+}
+
+
+void MainWindow::on_actionFontColor_triggered()//字体颜色
+{
+    QColor color=QColorDialog::getColor(Qt::black,this,"选择颜色");
+    if(color.isValid()){
+        ui->TextEdit->setStyleSheet(QString("QPlainTextEdit {color:%1}").arg(color.name()));
+    }
+}
+
+
+void MainWindow::on_actionBColor_triggered()//背景颜色
+{
+    QColor color=QColorDialog::getColor(Qt::black,this,"选择颜色");
+    if(color.isValid()){
+        ui->TextEdit->setStyleSheet(QString("QPlainTextEdit {background-color: %1}").arg(color.name()));
+    }
+}
+
+
+void MainWindow::on_actionColor_triggered()//字体背景色
+{
+
+}
+
+
+void MainWindow::on_actionWrap_triggered()//自动换行
+{
+    QPlainTextEdit::LineWrapMode mode =ui->TextEdit->lineWrapMode();
+    if(mode == QTextEdit::NoWrap ){
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+        ui->actionWrap->setChecked(true);
+    } else {ui->TextEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
+
+        ui->actionWrap->setChecked(false);
+    }
+}
+
+
+void MainWindow::on_actionFont_triggered()//字体
+{
+    bool ok=false;
+    QFont font = QFontDialog::getFont(&ok, this);
+
+    if(ok)
+        ui->TextEdit->setFont(font);
 }
 

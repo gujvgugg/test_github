@@ -337,6 +337,9 @@
    </property>
   </action>
   <action name="actionWrap">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/wrap.svg</normaloff>:/img/wrap.svg</iconset>
@@ -352,6 +355,9 @@
    </property>
   </action>
   <action name="actionToolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/tool.svg</normaloff>:/img/tool.svg</iconset>
@@ -367,6 +373,9 @@
    </property>
   </action>
   <action name="actionBar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/linenumber.svg</normaloff>:/img/linenumber.svg</iconset>
