@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SearchDialog</class>
- <widget class="QDialog" name="SearchDialog">
+ <class>FindDialog</class>
+ <widget class="QDialog" name="FindDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -26,14 +26,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="findText"/>
        </item>
       </layout>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QCheckBox" name="checkBox">
+        <widget class="QCheckBox" name="cbCaseSensitive">
          <property name="text">
           <string>区分大小写</string>
          </property>
@@ -46,14 +46,14 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <widget class="QRadioButton" name="radioButton">
+           <widget class="QRadioButton" name="rbUp">
             <property name="text">
              <string>向上(U)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QRadioButton" name="radioButton_2">
+           <widget class="QRadioButton" name="rbDown">
             <property name="text">
              <string>向下(D)</string>
             </property>
@@ -69,14 +69,14 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btFindNext">
        <property name="text">
         <string>查找下一个(F)</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btCancel">
        <property name="text">
         <string>取消</string>
        </property>

@@ -31,7 +31,7 @@
      <number>1</number>
     </property>
     <item>
-     <widget class="QPlainTextEdit" name="TextEdit"/>
+     <widget class="QPlainTextEdit" name="textEdit"/>
     </item>
    </layout>
   </widget>
@@ -48,52 +48,52 @@
     <property name="title">
      <string>文件(F)</string>
     </property>
-    <addaction name="actionNew"/>
-    <addaction name="actionOpen"/>
-    <addaction name="actionSave"/>
-    <addaction name="actionSaveAs"/>
+    <addaction name="actNew"/>
+    <addaction name="actOpen"/>
+    <addaction name="actSave"/>
+    <addaction name="actSaveAs"/>
     <addaction name="separator"/>
-    <addaction name="actionExit"/>
+    <addaction name="actExit"/>
    </widget>
    <widget class="QMenu" name="menu_E">
     <property name="title">
      <string>编辑(E)</string>
     </property>
-    <addaction name="actionUndo"/>
-    <addaction name="actionRedo"/>
-    <addaction name="actionCut"/>
-    <addaction name="actionCopy"/>
-    <addaction name="actionPaste"/>
+    <addaction name="actUndo"/>
+    <addaction name="actRedo"/>
+    <addaction name="actCut"/>
+    <addaction name="actCopy"/>
+    <addaction name="actPaste"/>
     <addaction name="separator"/>
-    <addaction name="actionFind"/>
-    <addaction name="actionReplace"/>
+    <addaction name="actFind"/>
+    <addaction name="actReplace"/>
     <addaction name="separator"/>
-    <addaction name="actionSelectAll"/>
+    <addaction name="actSelectAll"/>
    </widget>
    <widget class="QMenu" name="menu_O">
     <property name="title">
      <string>格式(O)</string>
     </property>
-    <addaction name="actionWrap"/>
-    <addaction name="action_L"/>
-    <addaction name="actionFont"/>
+    <addaction name="actWrap"/>
+    <addaction name="actLine"/>
+    <addaction name="actFont"/>
     <addaction name="actionFontColor"/>
     <addaction name="separator"/>
-    <addaction name="actionColor"/>
-    <addaction name="actionBColor"/>
+    <addaction name="actFontBackgroundcolor"/>
+    <addaction name="actEditorBackgroundColor"/>
    </widget>
    <widget class="QMenu" name="menu_V">
     <property name="title">
      <string>查看(V)</string>
     </property>
-    <addaction name="actionToolbar"/>
-    <addaction name="actionBar"/>
+    <addaction name="actToolBar"/>
+    <addaction name="actStatusBar"/>
    </widget>
    <widget class="QMenu" name="menu_H">
     <property name="title">
      <string>帮助(H)</string>
     </property>
-    <addaction name="actionAbout"/>
+    <addaction name="actAbout"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_E"/>
@@ -112,28 +112,28 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionNew"/>
-   <addaction name="actionOpen"/>
-   <addaction name="actionSave"/>
-   <addaction name="actionSaveAs"/>
+   <addaction name="actNew"/>
+   <addaction name="actOpen"/>
+   <addaction name="actSave"/>
+   <addaction name="actSaveAs"/>
    <addaction name="separator"/>
-   <addaction name="actionUndo"/>
-   <addaction name="actionRedo"/>
-   <addaction name="actionCut"/>
-   <addaction name="actionCopy"/>
-   <addaction name="actionPaste"/>
+   <addaction name="actUndo"/>
+   <addaction name="actRedo"/>
+   <addaction name="actCut"/>
+   <addaction name="actCopy"/>
+   <addaction name="actPaste"/>
    <addaction name="separator"/>
-   <addaction name="actionFind"/>
-   <addaction name="actionReplace"/>
+   <addaction name="actFind"/>
+   <addaction name="actReplace"/>
    <addaction name="separator"/>
-   <addaction name="actionFont"/>
-   <addaction name="action_L"/>
-   <addaction name="actionWrap"/>
+   <addaction name="actFont"/>
+   <addaction name="actLine"/>
+   <addaction name="actWrap"/>
    <addaction name="separator"/>
-   <addaction name="actionToolbar"/>
-   <addaction name="actionBar"/>
+   <addaction name="actToolBar"/>
+   <addaction name="actStatusBar"/>
   </widget>
-  <action name="actionNew">
+  <action name="actNew">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/new.svg</normaloff>:/img/new.svg</iconset>
@@ -151,7 +151,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionOpen">
+  <action name="actOpen">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/open.svg</normaloff>:/img/open.svg</iconset>
@@ -169,7 +169,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionSave">
+  <action name="actSave">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/save.svg</normaloff>:/img/save.svg</iconset>
@@ -187,7 +187,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionSaveAs">
+  <action name="actSaveAs">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/saveas.svg</normaloff>:/img/saveas.svg</iconset>
@@ -202,7 +202,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionExit">
+  <action name="actExit">
    <property name="text">
     <string>退出(&amp;X)</string>
    </property>
@@ -213,7 +213,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionUndo">
+  <action name="actUndo">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/undo.svg</normaloff>:/img/undo.svg</iconset>
@@ -231,7 +231,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionCut">
+  <action name="actCut">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/cut.svg</normaloff>:/img/cut.svg</iconset>
@@ -249,7 +249,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionCopy">
+  <action name="actCopy">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/copy.svg</normaloff>:/img/copy.svg</iconset>
@@ -267,7 +267,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionPaste">
+  <action name="actPaste">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/paste.svg</normaloff>:/img/paste.svg</iconset>
@@ -285,7 +285,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionFind">
+  <action name="actFind">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/find.svg</normaloff>:/img/find.svg</iconset>
@@ -303,7 +303,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionReplace">
+  <action name="actReplace">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/replace.svg</normaloff>:/img/replace.svg</iconset>
@@ -321,7 +321,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionFont">
+  <action name="actFont">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/font.svg</normaloff>:/img/font.svg</iconset>
@@ -336,7 +336,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionWrap">
+  <action name="actWrap">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -354,7 +354,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionToolbar">
+  <action name="actToolBar">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -372,7 +372,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionBar">
+  <action name="actStatusBar">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -390,7 +390,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionRedo">
+  <action name="actRedo">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/redo.svg</normaloff>:/img/redo.svg</iconset>
@@ -408,7 +408,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionSelectAll">
+  <action name="actSelectAll">
    <property name="text">
     <string>全选(&amp;A)</string>
    </property>
@@ -422,7 +422,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="action_L">
+  <action name="actLine">
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/print.svg</normaloff>:/img/print.svg</iconset>
@@ -440,7 +440,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionAbout">
+  <action name="actAbout">
    <property name="text">
     <string>关于(&amp;A)</string>
    </property>
@@ -462,7 +462,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionBColor">
+  <action name="actEditorBackgroundColor">
    <property name="text">
     <string>编辑器背景色</string>
    </property>
@@ -473,7 +473,7 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionColor">
+  <action name="actFontBackgroundcolor">
    <property name="text">
     <string>字体背景色</string>
    </property>

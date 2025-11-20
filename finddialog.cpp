@@ -1,24 +1,25 @@
-#include "replacedialog.h"
-#include "ui_replacedialog.h"
+#include "finddialog.h"
+#include "ui_finddialog.h"
 #include <QMessageBox>
 
-ReplaceDialog::ReplaceDialog(QWidget *parent,QPlainTextEdit *textEdit)
+FindDialog::FindDialog(QWidget *parent, QPlainTextEdit * textEdit)
     : QDialog(parent)
-    , ui(new Ui::ReplaceDialog)
+    , ui(new Ui::FindDialog)
 {
     ui->setupUi(this);
+
     pTextEdit = textEdit;
     ui->rbDown->setChecked(true);
 }
 
-ReplaceDialog::~ReplaceDialog()
+FindDialog::~FindDialog()
 {
     delete ui;
 }
 
-void ReplaceDialog::on_btFindNext_clicked()
+void FindDialog::on_btFindNext_clicked()
 {
-    QString target = ui->searchText->text();
+    QString target = ui->findText->text();
 
     if(target == "" || pTextEdit == nullptr)
         return;
@@ -58,39 +59,7 @@ void ReplaceDialog::on_btFindNext_clicked()
 }
 
 
-void ReplaceDialog::on_btReplace_clicked()
-{
-    QString target = ui->searchText->text();
-    QString to = ui->targetText->text();
-
-    if((pTextEdit != nullptr)&&(target != "") &&(to != "")){
-        QString selText = pTextEdit->textCursor().selectedText();
-
-        if(selText == target){
-            pTextEdit->insertPlainText(to);
-        }
-
-        on_btFindNext_clicked();
-    }
-}
-
-
-void ReplaceDialog::on_btReplaceAll_clicked()
-{
-    QString target = ui->searchText->text();
-    QString to = ui->targetText->text();
-
-    if((pTextEdit != nullptr)&&(target != "") &&(to != "")){
-        QString text = pTextEdit->toPlainText();
-
-        text.replace(target, to, ui->cbCaseSensitive->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive);
-        pTextEdit->clear();
-        pTextEdit->insertPlainText(text);
-    }
-}
-
-
-void ReplaceDialog::on_btCancel_clicked()
+void FindDialog::on_btCancel_clicked()
 {
     accept();
 }

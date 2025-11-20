@@ -47,24 +47,7 @@
     <string>小九文本编辑器</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>110</y>
-     <width>181</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>开发者：郑宇 
-
-学号：2023414300127 
-
-email：123456@qq.com</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -80,7 +63,7 @@ email：123456@qq.com</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -92,6 +75,39 @@ email：123456@qq.com</string>
    <property name="text">
     <string>v1.0  66566</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>122</y>
+     <width>181</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>开发者：郑宇</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>学号：2023414300127 </string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>email：123456@qq.com</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
