@@ -19,7 +19,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_loginButton_clicked();
+    void on_loginButton_clicked();//1
 
     void on_sayButton_clicked();
 

@@ -73,7 +73,7 @@ void ChatServer::jsonReceived(ServerWorker *sender, const QJsonObject &docObj)
         QJsonArray userlist;
         for(ServerWorker *worker : m_clients){
             if(worker == sender){
-                userlist.append(worker->userName() + "*");
+                userlist.append(worker->userName() + "*");//1
             }else{
                 userlist.append(worker->userName());
             }

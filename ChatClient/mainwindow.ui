@@ -15,152 +15,301 @@
   </property>
   <property name="styleSheet">
    <string notr="true">/* ======================
-   全局基础样式
+   全局基础样式 (优化配色和字体)
 ====================== */
 QWidget {
-    background-color: #f5f7fa;
-    font-family: &quot;Microsoft YaHei&quot;;
+    background-color: #f8f9fa;
+    font-family: &quot;Microsoft YaHei&quot;, &quot;Segoe UI&quot;, sans-serif;
     font-size: 14px;
-    color: #333333;
+    color: #2d3748;
+    /* 轻微抗锯齿优化 */
+    -webkit-font-smoothing: antialiased;
 }
 
 /* ======================
-   标题
+   标题 (增强视觉层级)
 ====================== */
+/* 聊天室标题行（核心样式：蓝色背景+白色文字） */
 QLabel#titleLabel {
-    font-size: 18px;
-    font-weight: bold;
-    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;          /* 文字白色 */
+    background-color: #2b6cb0; /* 主蓝色背景 */
+    padding: 8px 12px;       /* 上下内边距8px，左右12px，匹配图片样式 */
+    border: none;            /* 去除边框 */
+    /* 如需轻微圆角可取消注释：border-radius: 4px; */
+    /* 如需宽度铺满可添加：width: 100%; display: block; */
+}
+
+/* 二级标题 */
+QLabel#subTitleLabel {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4a5568;
 }
 
 /* ======================
-   登录卡片区域
+   登录卡片区域 (增加阴影提升质感)
 ====================== */
 QFrame#loginFrame {
     background-color: #ffffff;
-    border-radius: 10px;
-    border: 1px solid #dcdfe6;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    /* 柔和阴影 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
 }
 
-/* 登录标签 */
+/* 普通标签 */
 QLabel {
-    color: #606266;
+    color: #4a5568;
 }
 
-/* 输入框统一样式 */
+/* 必填项标签 */
+QLabel#requiredLabel {
+    color: #e53e3e;
+}
+
+/* ======================
+   输入框统一样式 (优化焦点状态和hover效果)
+====================== */
 QLineEdit {
-    height: 30px;
-    padding: 4px 8px;
-    border-radius: 5px;
-    border: 1px solid #dcdfe6;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
     background-color: #ffffff;
+    /* 输入框内边距优化 */
+    selection-background-color: #e6f7ff;
+    selection-color: #2b6cb0;
+}
+
+QLineEdit:hover {
+    border: 1px solid #cbd5e0;
 }
 
 QLineEdit:focus {
-    border: 1px solid #409eff;
+    border: 2px solid #3182ce;
+    /* 焦点发光效果 */
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+    outline: none;
+}
+
+/* 禁用状态输入框 */
+QLineEdit:disabled {
+    background-color: #f7fafc;
+    color: #a0aec0;
+    border-color: #e2e8f0;
 }
 
 /* ======================
-   按钮样式
+   按钮样式 (优化尺寸和交互反馈)
 ====================== */
 QPushButton {
-    height: 32px;
-    padding: 0 15px;
-    border-radius: 6px;
-    background-color: #409eff;
+    height: 38px;
+    padding: 0 20px;
+    border-radius: 8px;
+    background-color: #3182ce;
     color: #ffffff;
     border: none;
+    font-weight: 500;
+    /* 禁止文字选中 */
+    -webkit-user-select: none;
 }
 
 QPushButton:hover {
-    background-color: #66b1ff;
+    background-color: #2b6cb0;
+    /* 轻微上浮效果 */
+    transform: translateY(-1px);
 }
 
 QPushButton:pressed {
-    background-color: #337ecc;
+    background-color: #2c5282;
+    transform: translateY(0);
 }
 
-/* 退出按钮弱化处理 */
+QPushButton:disabled {
+    background-color: #a0aec0;
+    color: #e2e8f0;
+    transform: none;
+}
+
+/* 退出按钮 (优化配色) */
 QPushButton#pushButton_2 {
-    background-color: #f56c6c;
+    background-color: #e53e3e;
 }
 
 QPushButton#pushButton_2:hover {
-    background-color: #f78989;
+    background-color: #c53030;
+}
+
+QPushButton#pushButton_2:pressed {
+    background-color: #9b2c2c;
+}
+
+/* 次要按钮 */
+QPushButton#secondaryButton {
+    background-color: #ffffff;
+    color: #3182ce;
+    border: 1px solid #3182ce;
+}
+
+QPushButton#secondaryButton:hover {
+    background-color: #f7fafc;
 }
 
 /* ======================
-   聊天界面
+   聊天界面 (优化细节)
 ====================== */
 
 /* 聊天显示区 */
 QTextEdit {
-    border: 1px solid #dcdfe6;
-    border-radius: 6px;
-    padding: 6px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
     background-color: #ffffff;
+    /* 禁止自动换行时的滚动条闪烁 */
+    line-wrap-mode: word-wrap;
 }
 
-/* 用户列表 */
+/* 聊天显示区禁用状态 */
+QTextEdit:disabled {
+    background-color: #f7fafc;
+    color: #718096;
+}
+
+/* 用户列表 (优化选中效果) */
 QListWidget {
-    border: 1px solid #dcdfe6;
-    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
     background-color: #ffffff;
+    /* 去除默认边框 */
+    outline: none;
 }
 
 QListWidget::item {
-    height: 28px;
-    padding-left: 6px;
+    height: 36px;
+    padding-left: 12px;
+    line-height: 36px;
+}
+
+QListWidget::item:hover {
+    background-color: #f7fafc;
 }
 
 QListWidget::item:selected {
-    background-color: #ecf5ff;
-    color: #409eff;
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    border-left: 3px solid #3182ce;
 }
 
 /* ======================
    输入区
 ====================== */
 QLineEdit#lineEdit {
-    border-radius: 6px;
+    border-radius: 8px;
+    height: 38px;
 }
 
 /* ======================
-   滚动条美化（可选但推荐）
+   滚动条美化 (优化手感)
 ====================== */
 QScrollBar:vertical {
-    width: 8px;
+    width: 10px;
     background: transparent;
+    margin: 4px 0;
 }
 
 QScrollBar::handle:vertical {
-    background: #c0c4cc;
-    border-radius: 4px;
+    background: #cbd5e0;
+    border-radius: 5px;
+    min-height: 30px;
 }
 
 QScrollBar::handle:vertical:hover {
-    background: #909399;
+    background: #94a3b8;
 }
 
 QScrollBar::add-line,
 QScrollBar::sub-line {
     height: 0px;
 }
-</string>
+
+QScrollBar::add-page,
+QScrollBar::sub-page {
+    background: transparent;
+}
+
+/* 水平滚动条 */
+QScrollBar:horizontal {
+    height: 10px;
+    background: transparent;
+    margin: 0 4px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #cbd5e0;
+    border-radius: 5px;
+    min-width: 30px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #94a3b8;
+}
+
+/* ======================
+   额外补充：复选框和单选框样式
+====================== */
+QCheckBox {
+    spacing: 8px;
+    color: #4a5568;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid #cbd5e0;
+    background-color: #ffffff;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #3182ce;
+    border-color: #3182ce;
+    image: url(:/icons/check.svg); /* 可替换为勾选图标 */
+}
+
+QRadioButton {
+    spacing: 8px;
+    color: #4a5568;
+}
+
+QRadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    border: 1px solid #cbd5e0;
+    background-color: #ffffff;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #3182ce;
+    border-color: #3182ce;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="titleLabel">
       <property name="text">
-       <string>汤福高的聊天室</string>
+       <string>郑宇的聊天室</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="chatPage">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -208,10 +357,10 @@ QScrollBar::sub-line {
        <widget class="QFrame" name="loginFrame">
         <property name="geometry">
          <rect>
-          <x>90</x>
-          <y>70</y>
-          <width>231</width>
-          <height>117</height>
+          <x>40</x>
+          <y>20</y>
+          <width>331</width>
+          <height>211</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -247,7 +396,7 @@ QScrollBar::sub-line {
            <item row="1" column="1">
             <widget class="QLineEdit" name="usernameEdit">
              <property name="text">
-              <string>tfg</string>
+              <string>zy</string>
              </property>
             </widget>
            </item>

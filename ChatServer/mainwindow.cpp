@@ -20,7 +20,7 @@ void MainWindow::on_startStopButton_clicked()
 {
     if(m_chatServer->isListening()){
         m_chatServer->stopServer();
-        ui->startStopButton->setText("启动服务器");
+        ui->startStopButton->setText("启动服务器");//1
         logMessage("服务器已停止");
     }else{
         if(!m_chatServer->listen(QHostAddress::Any, 1967)){

@@ -15,7 +15,7 @@ public:
     void setUserName(QString user);
 
 signals:
-    void logMessage(const QString &msg);
+    void logMessage(const QString &msg);//1
     void jsonReceived(ServerWorker *sender, const QJsonObject &docObj);
     void disconnectedFromClient();
 

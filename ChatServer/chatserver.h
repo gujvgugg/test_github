@@ -5,7 +5,7 @@
 #include <QTcpServer>
 #include "serverworker.h"
 
-class ChatServer : public QTcpServer
+class ChatServer : public QTcpServer//1
 {
     Q_OBJECT
 public:

@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QTcpSocket>
 
-class ChatClient : public QObject
+class ChatClient : public QObject//1
 {
     Q_OBJECT
 public:

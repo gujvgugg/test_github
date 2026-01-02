@@ -4,7 +4,7 @@
 #include <QJsonValue>
 #include <QJsonObject>
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent)//1
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {

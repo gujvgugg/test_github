@@ -30,7 +30,7 @@ void ServerWorker::onReadyRead()
 {
     QByteArray jsonData;
     QDataStream socketStream(m_serverSocket);
-    socketStream.setVersion(QDataStream::Qt_6_9);
+    socketStream.setVersion(QDataStream::Qt_6_0);//1
     for(;;){
         socketStream.startTransaction();
         socketStream >>jsonData;
@@ -60,7 +60,7 @@ void ServerWorker::sendMessage(const QString &text, const QString &type)
         return;
     if(!text.isEmpty()){
         QDataStream serverStream(m_serverSocket);
-        serverStream.setVersion(QDataStream::Qt_6_9);
+        serverStream.setVersion(QDataStream::Qt_6_0);
 
         QJsonObject message;
         message["type"] = type;
@@ -75,6 +75,6 @@ void ServerWorker::sendJson(const QJsonObject &json)
     const QByteArray jsonData = QJsonDocument(json).toJson(QJsonDocument::Compact);
     emit logMessage(QLatin1String("Sending to ") + userName() + QLatin1String(" - ") + QString::fromUtf8(jsonData));
     QDataStream socketStream(m_serverSocket);
-    socketStream.setVersion(QDataStream::Qt_6_9);
+    socketStream.setVersion(QDataStream::Qt_6_0);
     socketStream << jsonData;
 }
